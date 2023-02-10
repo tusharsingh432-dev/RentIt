@@ -7,7 +7,7 @@ exports.login = (req, res, next) => {
 
 exports.signup = (req, res, next) => {
     const incoming = req.body;
-    const user = new User({ name: incoming.name });
+    const user = new User({ ...req.body });
     user.save();
     res.status(200).send('signup');
-}   
+}
